@@ -6,13 +6,47 @@ import Navbar from "../components/Navbar.astro";
 <Layout title="cedricdotcom">
   <main>
     <Navbar />
+
+    <div class="flex flex-col lg:mt-10 mt-5">
+      <h1 class="font-semibold lg:text-2xl text-lg">Cedric Ahenkorah</h1>
+      <p class="text-gray-500 lg:text-base text-sm">Software Engineer</p>
+    </div>
+
+    <div class="lg:mt-5 mt-3">
+      <p class="lg:text-base text-sm">
+        Hi, i'm a software engineer with a year and a half experience building
+        backend systems, frontend and mobile applications for growing companies.
+        Currently working with JavaScript/TypeScript and PHP, I'm keenly
+        interested in system design and architecture. My domain expertise lies
+        in fintech and SaaS startups. An avid reader, and plan to delve into
+        writing soon.
+      </p>
+    </div>
+
+    <div class="mt-5 flex items-center gap-x-3">
+      <h1>Find me here:</h1>
+
+      <ul>
+        <a href="" class="text-blue-500 underline">Github</a>
+
+        <a href="" class="text-blue-500 underline">Twitter</a>
+
+        <a href="" class="text-blue-500 underline">LinkedIn</a>
+      </ul>
+    </div>
+
+    <div class="border mt-5"></div>
+
+    <div class="mt-10">
+      <h1 class="font-bold lg:text-xl text-base">Writings</h1>
+    </div>
   </main>
 </Layout>
 
 <style>
   main {
     margin: auto;
-    padding: 1rem;
+    /* padding: 1rem; */
     width: 800px;
     max-width: calc(100% - 2rem);
     line-height: 1.6;
