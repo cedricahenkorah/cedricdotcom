@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
+import moment from "moment";
+const posts = await Astro.glob("../pages/posts/*.md");
 ---
 
 <Layout title="cedricdotcom">
@@ -52,10 +54,25 @@ import Navbar from "../components/Navbar.astro";
     <div class="border mt-5"></div>
 
     <div class="lg:mt-10 mt-5">
-      <h1 class="font-bold lg:text-xl text-base">Writings</h1>
+      <h1 class="font-bold lg:text-xl text-base">writings</h1>
 
       <div class="lg:mt-5 mt-3">
-        <p class="lg:text-base text-sm">Coming soon... :)</p>
+        <ul>
+          {
+            posts.map((post) => (
+              <li class="flex flex-col">
+                <a href={post.url}>
+                  <p class="text-sm">
+                    {moment(post.frontmatter.pubDate).format("MMMM Do, YYYY")}
+                  </p>
+                  <h1 class="font-semibold text-lg">
+                    {post.frontmatter.title}
+                  </h1>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
       </div>
     </div>
 
