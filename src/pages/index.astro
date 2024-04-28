@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import moment from "moment";
 import { getCollection } from "astro:content";
+import { projects } from "../constants/index";
 const posts = await getCollection("posts");
 ---
 
@@ -81,7 +82,32 @@ const posts = await getCollection("posts");
       <h1 class="font-bold lg:text-xl text-base">Projects</h1>
 
       <div class="lg:mt-5 mt-3">
-        <p class="lg:text-base text-sm">Coming soon... :)</p>
+        <div
+          class="grid gri-cols-2 lg:grid-cols-3 gap-x-2 lg:gap-x-6 gap-y-3 lg:gap-y-8"
+        >
+          {
+            projects.map((project) => (
+              <li class="flex flex-col justify-between">
+                <div>
+                  <a href={`${project.url}`}>
+                    <h1 class="font-semibold text-sm lg:text-base">
+                      {project.title}
+                    </h1>
+                  </a>
+                  <p class="text-xs lg:text-sm text-gray-500">
+                    {project.description}
+                  </p>
+                </div>
+
+                <a href={`${project.github}`}>
+                  <p class="text-xs lg:text-sm text-blue-500 underline flex justify-end">
+                    Github repo
+                  </p>
+                </a>
+              </li>
+            ))
+          }
+        </div>
       </div>
     </div>
   </main>
