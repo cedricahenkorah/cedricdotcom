@@ -1,0 +1,21 @@
+html.dark {
+  font-family: "Open Sans", sans-serif;
+  background-color: #0d0950;
+  color: #fff;
+}
+
+code {
+  font-family:
+    Menlo,
+    Monaco,
+    Lucida Console,
+    Liberation Mono,
+    DejaVu Sans Mono,
+    Bitstream Vera Sans Mono,
+    Courier New,
+    monospace;
+}
+
+.dark .nav-links a {
+  color: #fff;
+}
