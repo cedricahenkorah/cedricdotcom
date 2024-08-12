@@ -7,6 +7,12 @@ export const projects = [
     url: "https://autocedi-web.vercel.app/",
   },
   {
+    title: "Faceview",
+    description: "video chat application using webrtc.",
+    github: "https://github.com/cedricahenkorah/faceview",
+    url: "https://faceview.vercel.app/",
+  },
+  {
     title: "CsvToJson",
     description: "A web application that converts csv files to JSON.",
     github: "https://github.com/cedricahenkorah/csvtojson ",
