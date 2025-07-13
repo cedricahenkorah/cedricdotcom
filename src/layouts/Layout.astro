@@ -10,36 +10,82 @@ const { title } = Astro.props;
 <html lang="en" class="">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content="Cedric Ahenkorah - Software Engineer" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cedricdotcom.com/" />
+    <meta property="og:title" content="Cedric Ahenkorah - Software Engineer" />
+    <meta
+      property="og:description"
+      content="I build backend systems, frontend and mobile applications for growing companies. Currently working with JavaScript/TypeScript and PHP, with expertise in fintech and SaaS startups."
+    />
+    <meta property="og:image" content="/my-notion-face-portrait.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://cedricdotcom.com/" />
+    <meta
+      property="twitter:title"
+      content="Cedric Ahenkorah - Software Engineer"
+    />
+    <meta
+      property="twitter:description"
+      content="I build backend systems, frontend and mobile applications for growing companies. Currently working with JavaScript/TypeScript and PHP, with expertise in fintech and SaaS startups."
+    />
+    <meta property="twitter:image" content="/my-notion-face-portrait.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="lg:p-5 p-3 dark:bg-black bg-white text-black dark:text-white">
+  <body class="bg-white dark:bg-black text-gray-900 dark:text-gray-100">
     <slot />
   </body>
 </html>
 <style is:global>
   html {
-    font-family: "Bitstream Vera Sans Mono";
-   
-  }
-  code {
     font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
+      "IBM Plex Sans Condensed",
+      "IBM Plex Sans Condensed Fallback",
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      "Roboto",
+      "Oxygen",
+      "Ubuntu",
+      "Cantarell",
+      "Fira Sans",
+      "Droid Sans",
+      "Helvetica Neue",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Lora", "Lora Fallback", Georgia, serif;
+  }
+
+  body {
+    line-height: 1.6;
+  }
+
+  code {
+    font-family: "SF Mono", Monaco, Inconsolata, "Roboto Mono",
+      "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
   }
 </style>
