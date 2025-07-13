@@ -10,22 +10,28 @@ const posts = await getCollection("posts");
 <Layout title="cedric ahenkorah">
   <Navbar />
 
-  <main class="max-w-2xl mx-auto px-6">
+  <main class="max-w-2xl mx-auto px-4 sm:px-6">
     <!-- Hero Section -->
-    <section class="mb-5">
-      <h1 class="text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+    <section class="mb-4 sm:mb-5">
+      <h1
+        class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4 text-gray-900 dark:text-gray-100"
+      >
         Cedric Ahenkorah
       </h1>
-      <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+      <p
+        class="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed"
+      >
         building software systems for the future
       </p>
     </section>
 
     <!-- Social Links -->
-    <section class="mb-16">
-      <div class="flex items-center gap-6 text-sm">
+    <section class="mb-10 sm:mb-16">
+      <div
+        class="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-6 text-xs sm:text-sm"
+      >
         <span class="text-gray-500 dark:text-gray-400">Find me on:</span>
-        <div class="flex gap-4">
+        <div class="flex gap-3 sm:gap-4">
           <a
             href="https://github.com/cedricahenkorah"
             class="text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
@@ -71,11 +77,13 @@ const posts = await getCollection("posts");
     </section>
 
     <!-- Writings Section -->
-    <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+    <section class="mb-10 sm:mb-16">
+      <h2
+        class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-4 text-gray-900 dark:text-gray-100"
+      >
         Writing
       </h2>
-      <div class="space-y-6">
+      <div class="space-y-4 sm:space-y-6">
         {
           posts
             .slice()
@@ -87,10 +95,10 @@ const posts = await getCollection("posts");
             .map((post: any) => (
               <article class="group">
                 <a href={`/posts/${post.slug}`} class="block">
-                  <time class="text-sm text-gray-500 dark:text-gray-400 mb-2 block">
+                  <time class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-1 sm:mb-2 block">
                     {moment(post.data.pubDate).format("MMMM Do, YYYY")}
                   </time>
-                  <h3 class="text-base font-semibold text-gray-900 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors">
+                  <h3 class="text-sm sm:text-base md:text-lg font-semibold text-gray-900 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors">
                     {post.data.title}
                   </h3>
                 </a>
@@ -101,15 +109,17 @@ const posts = await getCollection("posts");
     </section>
 
     <!-- Projects Section -->
-    <section class="mb-16">
-      <h2 class="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+    <section class="mb-10 sm:mb-16">
+      <h2
+        class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-4 text-gray-900 dark:text-gray-100"
+      >
         Projects
       </h2>
-      <div class="space-y-6">
+      <div class="space-y-4 sm:space-y-6">
         {
           projects.map((project) => (
             <article class="group">
-              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2">
                 <div class="flex-1">
                   <a
                     href={project.url || project.github}
@@ -117,15 +127,15 @@ const posts = await getCollection("posts");
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <h3 class="text-base font-semibold text-gray-900 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors">
+                    <h3 class="text-sm sm:text-base md:text-lg font-semibold text-gray-900 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors">
                       {project.title}
                     </h3>
                   </a>
-                  <p class="text-gray-600 dark:text-gray-400 mt-1 text-sm leading-relaxed">
+                  <p class="text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400 mt-1 leading-relaxed">
                     {project.description}
                   </p>
                 </div>
-                <div class="flex gap-3 text-sm">
+                <div class="flex gap-2 sm:gap-3 text-xs sm:text-sm">
                   {project.url && (
                     <a
                       href={project.url}
