@@ -7,124 +7,149 @@ import { projects } from "../constants/index";
 const posts = await getCollection("posts");
 ---
 
-<Layout title="cedricdotcom">
-  <main>
-    <Navbar />
+<Layout title="cedric ahenkorah">
+  <Navbar />
 
-    <div class="flex flex-col lg:mt-10 mt-5">
-      <h1 class="font-semibold lg:text-2xl text-lg">Cedric Ahenkorah</h1>
-      <p class="text-gray-500 lg:text-base text-sm">Software Engineer</p>
-    </div>
-
-    <div class="lg:mt-5 mt-3">
-      <p class="lg:text-base text-sm">
-        Hi, i'm a software engineer with experience building
-        backend systems, frontend and mobile applications for growing companies.
-        Currently working with JavaScript/TypeScript and PHP, I'm keenly
-        interested in software design and architecture. My domain expertise lies
-        in fintech and SaaS startups. 
+  <main class="max-w-2xl mx-auto px-6">
+    <!-- Hero Section -->
+    <section class="mb-5">
+      <h1 class="text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+        Cedric Ahenkorah
+      </h1>
+      <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+        building software systems for the future
       </p>
-    </div>
+    </section>
 
-    <div class="mt-5 flex items-center gap-x-3 lg:text-sm text-xs">
-      <h1>Find me here:</h1>
-
-      <ul>
-        <a
-          href="https://github.com/cedricahenkorah"
-          class="text-blue-500 underline"
-          target="_blank">Github</a
-        >
-
-        <a
-          href="https://twitter.com/cedricahenkora"
-          class="text-blue-500 underline"
-          target="_blank">Twitter</a
-        >
-
-        <a
-          href="https://www.linkedin.com/in/cedric-ahenkorah-593116189/"
-          class="text-blue-500 underline"
-          target="_blank">LinkedIn</a
-        >
-
-        <a
-          href="https://docs.google.com/document/d/16sO2OGTOtqvGN31PrdH4MBD91i4cZCQ7wuAypdrbG7Q/edit?usp=sharing"
-          class="text-blue-500 underline"
-          target="_blank">Resume</a
-        >
-
-        <a href="https://dev.to/cedricahenkorah" class="text-blue-500 underline"
-        target="_blank">Blog</a>
-      </ul>
-    </div>
-
-    <div class="border mt-5"></div>
-
-    <div class="lg:mt-10 mt-5">
-      <h1 class="font-bold lg:text-xl text-base">Writings</h1>
-
-      <div class="lg:mt-5 mt-3">
-        <ul class="flex flex-col gap-y-2 lg:gap-y-4">
-          {
-            posts.map((post) => (
-              <li class="flex flex-col">
-                <a href={`/posts/${post.slug}`}>
-                  <p class="text-xs lg:text-sm">
-                    {moment(post.data.pubDate).format("MMMM Do, YYYY")}
-                  </p>
-                  <h1 class="font-semibold text-sm lg:text-base">
-                    {post.data.title}
-                  </h1>
-                </a>
-              </li>
-            ))
-          }
-        </ul>
+    <!-- Social Links -->
+    <section class="mb-16">
+      <div class="flex items-center gap-6 text-sm">
+        <span class="text-gray-500 dark:text-gray-400">Find me on:</span>
+        <div class="flex gap-4">
+          <a
+            href="https://github.com/cedricahenkorah"
+            class="text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://twitter.com/cedricahenkora"
+            class="text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Twitter
+          </a>
+          <a
+            href="https://www.linkedin.com/in/cedric-ahenkorah-593116189/"
+            class="text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://dev.to/cedricahenkorah"
+            class="text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Blog
+          </a>
+          <a
+            href="https://docs.google.com/document/d/16sO2OGTOtqvGN31PrdH4MBD91i4cZCQ7wuAypdrbG7Q/edit?usp=sharing"
+            class="text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Resume
+          </a>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="lg:mt-10 mt-5">
-      <h1 class="font-bold lg:text-xl text-base">Projects</h1>
+    <!-- Writings Section -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+        Writing
+      </h2>
+      <div class="space-y-6">
+        {
+          posts
+            .slice()
+            .sort(
+              (a: any, b: any) =>
+                new Date(b.data.pubDate).getTime() -
+                new Date(a.data.pubDate).getTime()
+            )
+            .map((post: any) => (
+              <article class="group">
+                <a href={`/posts/${post.slug}`} class="block">
+                  <time class="text-sm text-gray-500 dark:text-gray-400 mb-2 block">
+                    {moment(post.data.pubDate).format("MMMM Do, YYYY")}
+                  </time>
+                  <h3 class="text-base font-semibold text-gray-900 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors">
+                    {post.data.title}
+                  </h3>
+                </a>
+              </article>
+            ))
+        }
+      </div>
+    </section>
 
-      <div class="lg:mt-5 mt-3">
-        <div
-          class="grid grid-cols-2 lg:grid-cols-3 gap-x-3 lg:gap-x-6 gap-y-5 lg:gap-y-8"
-        >
-          {
-            projects.map((project) => (
-              <li class="flex flex-col justify-between">
-                <div>
-                  <a href={`${project.url}`}>
-                    <h1 class="font-semibold text-sm lg:text-base">
+    <!-- Projects Section -->
+    <section class="mb-16">
+      <h2 class="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+        Projects
+      </h2>
+      <div class="space-y-6">
+        {
+          projects.map((project) => (
+            <article class="group">
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                <div class="flex-1">
+                  <a
+                    href={project.url || project.github}
+                    class="block"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <h3 class="text-base font-semibold text-gray-900 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors">
                       {project.title}
-                    </h1>
+                    </h3>
                   </a>
-                  <p class="text-xs lg:text-sm text-gray-500">
+                  <p class="text-gray-600 dark:text-gray-400 mt-1 text-sm leading-relaxed">
                     {project.description}
                   </p>
                 </div>
-
-                <a href={`${project.github}`}>
-                  <p class="text-xs lg:text-sm text-blue-500 underline flex justify-end">
-                    Github repo
-                  </p>
-                </a>
-              </li>
-            ))
-          }
-        </div>
+                <div class="flex gap-3 text-sm">
+                  {project.url && (
+                    <a
+                      href={project.url}
+                      class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Demo →
+                    </a>
+                  )}
+                  <a
+                    href={project.github}
+                    class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub →
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))
+        }
       </div>
-    </div>
+    </section>
   </main>
 </Layout>
-
-<style>
-  main {
-    margin: auto;
-    /* padding: 1rem; */
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    line-height: 1.6;
-  }
-</style>
