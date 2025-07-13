@@ -1,5 +1,12 @@
 export const projects = [
   {
+    title: "notsc🦉",
+    description:
+      "notsc is a highly customizable boilerplate generator for quickly scaffolding Node.js + TypeScript API projects",
+    github: "https://github.com/cedricahenkorah/notsc",
+    url: "https://www.npmjs.com/package/notsc",
+  },
+  {
     title: "AutoCedi",
     description:
       "A user friendly application that automates payments using Ghana’s Central Bank Digital Currency(CBDC) - eCedi. Bank of Ghana eCedi Hackathon top 10 finalist.",
