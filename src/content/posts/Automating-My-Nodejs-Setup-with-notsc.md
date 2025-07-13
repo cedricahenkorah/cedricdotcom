@@ -26,6 +26,10 @@ Now installed, all you need to do is run it and follow the prompts:
 notsc
 ```
 
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/wsnf7rhdg7ij5q5e2sgw.png)
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/bot3zrsj1e41til83rdz.png)
+
 You should be able to scaffold a new Node.js with Typescript support backend project this way.
 
 This is an open source project and I'd love your contributions, support, and feedback.  
