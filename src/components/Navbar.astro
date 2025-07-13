@@ -1,15 +1,36 @@
 ---
 import ThemeIcon from "./ThemeIcon.astro";
+const { pathname } = Astro.url;
 ---
 
-<nav>
-  <div class="flex justify-between items-center">
-    <a href="/">
-      <h1 class="font-bold text-sm lg:text-lg tracking-wider">cedricdotcom</h1>
-    </a>
-
+<nav class="relative max-w-2xl mx-auto px-6 pt-8 py-4">
+  <div class="flex justify-between items-start">
     <ThemeIcon />
+    <div class="absolute right-6 top-8 flex flex-col items-end gap-2">
+      <a
+        href="/"
+        class={`text-base transition-colors ${
+          pathname === "/"
+            ? "text-gray-900 dark:text-gray-100 font-bold"
+            : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100"
+        }`}>about</a
+      >
+      <a
+        href="/writings"
+        class={`text-base transition-colors ${
+          pathname.startsWith("/writings")
+            ? "text-gray-900 dark:text-gray-100 font-bold"
+            : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100"
+        }`}>writings</a
+      >
+      <a
+        href="/projects"
+        class={`text-base transition-colors ${
+          pathname.startsWith("/projects")
+            ? "text-gray-900 dark:text-gray-100 font-bold"
+            : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100"
+        }`}>projects</a
+      >
+    </div>
   </div>
-
-  <div class="border mt-3"></div>
 </nav>
