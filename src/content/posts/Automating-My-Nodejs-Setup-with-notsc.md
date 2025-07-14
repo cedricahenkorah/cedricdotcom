@@ -16,6 +16,8 @@ A year on and I still reference this blog post myself each time I want to scaffo
 
 A simple CLI tool that scaffolds up my Node.js with Typescript support backend project in a few seconds and includes the boilerplate config I typically need. No more referencing my own blog post loool. It's opinionated, clean and fast. But yeah, that's the beauty of engineering, there's always a new / better way to do something or solve a problem. I'll be using this CLI tool myself anytime I need to set up my backend projects, and you can too. To get started, run this command to install the CLI globally on your machine and watch it do the magic for you.
 
+<a href="https://www.npmjs.com/package/notsc" class="text-blue-500 underline" target="_blank">Check out the notsc package on NPM</a>
+
 ```
 npm install -g notsc
 ```
