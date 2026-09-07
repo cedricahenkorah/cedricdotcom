@@ -88,13 +88,13 @@ const posts = await getCollection("posts");
           posts
             .slice()
             .sort(
-              (a: any, b: any) =>
+              (a, b) =>
                 new Date(b.data.pubDate).getTime() -
                 new Date(a.data.pubDate).getTime()
             )
-            .map((post: any) => (
+            .map((post) => (
               <article class="group">
-                <a href={`/posts/${post.slug}`} class="block">
+                <a href={`/posts/${post.id}`} class="block">
                   <time class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-1 sm:mb-2 block">
                     {moment(post.data.pubDate).format("MMMM Do, YYYY")}
                   </time>

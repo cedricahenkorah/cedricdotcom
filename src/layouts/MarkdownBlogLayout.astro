@@ -1,4 +1,5 @@
 ---
+import "../styles/tailwind.css";
 import moment from "moment";
 import Navbar from "../components/Navbar.astro";
 import Analytics from "@vercel/analytics/astro";
@@ -50,7 +51,7 @@ const { frontmatter } = Astro.props;
   <body class="bg-white dark:bg-black text-gray-900 dark:text-gray-100">
     <Navbar />
     <main class="max-w-2xl mx-auto px-4 sm:px-6 md:px-10">
-      <article class="prose prose-gray dark:prose-invert max-w-none">
+      <article class="prose max-w-none">
         <header class="mb-10">
           <h1
             class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100"
@@ -62,7 +63,7 @@ const { frontmatter } = Astro.props;
           </time>
         </header>
 
-        <div class="prose prose-gray dark:prose-invert max-w-none">
+        <div class="prose max-w-none">
           <slot />
         </div>
       </article>
@@ -72,142 +73,147 @@ const { frontmatter } = Astro.props;
 </html>
 
 <style is:global>
-  html {
-    font-family:
-      "IBM Plex Sans Condensed",
-      "IBM Plex Sans Condensed Fallback",
-      -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      "Roboto",
-      "Oxygen",
-      "Ubuntu",
-      "Cantarell",
-      "Fira Sans",
-      "Droid Sans",
-      "Helvetica Neue",
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  @layer base {
+    html {
+      font-family:
+        "IBM Plex Sans Condensed",
+        "IBM Plex Sans Condensed Fallback",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Roboto",
+        "Oxygen",
+        "Ubuntu",
+        "Cantarell",
+        "Fira Sans",
+        "Droid Sans",
+        "Helvetica Neue",
+        sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Lora", "Lora Fallback", Georgia, serif;
+    }
+
+    body {
+      line-height: 1.6;
+    }
+
+    code {
+      font-family:
+        "SF Mono", Monaco, Inconsolata, "Roboto Mono", "Source Code Pro", Menlo,
+        Consolas, "DejaVu Sans Mono", monospace;
+    }
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: "Lora", "Lora Fallback", Georgia, serif;
-  }
+  @layer components {
+    .prose {
+      color: inherit;
+    }
 
-  body {
-    line-height: 1.6;
-  }
+    .prose h1,
+    .prose h2,
+    .prose h3,
+    .prose h4,
+    .prose h5,
+    .prose h6 {
+      color: inherit;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
 
-  code {
-    font-family: "SF Mono", Monaco, Inconsolata, "Roboto Mono",
-      "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
-  }
+    .prose h1 {
+      font-size: 2rem;
+    }
 
-  .prose {
-    color: inherit;
-  }
+    .prose h2 {
+      font-size: 1.5rem;
+    }
 
-  .prose h1,
-  .prose h2,
-  .prose h3,
-  .prose h4,
-  .prose h5,
-  .prose h6 {
-    color: inherit;
-    font-weight: 600;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-  }
+    .prose h3 {
+      font-size: 1.25rem;
+    }
 
-  .prose h1 {
-    font-size: 2rem;
-  }
+    .prose p {
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
 
-  .prose h2 {
-    font-size: 1.5rem;
-  }
+    .prose ul,
+    .prose ol {
+      margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
+    }
 
-  .prose h3 {
-    font-size: 1.25rem;
-  }
+    .prose li {
+      margin-bottom: 0.5rem;
+    }
 
-  .prose p {
-    margin-bottom: 1.5rem;
-    line-height: 1.7;
-  }
+    .prose code {
+      background-color: #f3f4f6;
+      color: #1f2937;
+      padding: 0.125rem 0.25rem;
+      border-radius: 0.25rem;
+      font-size: 0.875rem;
+    }
 
-  .prose ul,
-  .prose ol {
-    margin-bottom: 1.5rem;
-    padding-left: 1.5rem;
-  }
+    .dark .prose code {
+      background-color: #374151;
+      color: #f9fafb;
+    }
 
-  .prose li {
-    margin-bottom: 0.5rem;
-  }
+    .prose pre {
+      background-color: #f3f4f6;
+      color: #1f2937;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+    }
 
-  .prose code {
-    background-color: #f3f4f6;
-    color: #1f2937;
-    padding: 0.125rem 0.25rem;
-    border-radius: 0.25rem;
-    font-size: 0.875rem;
-  }
+    .dark .prose pre {
+      background-color: #374151;
+      color: #f9fafb;
+    }
 
-  .dark .prose code {
-    background-color: #374151;
-    color: #f9fafb;
-  }
+    .prose blockquote {
+      border-left: 4px solid #e5e7eb;
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: #6b7280;
+    }
 
-  .prose pre {
-    background-color: #f3f4f6;
-    color: #1f2937;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    overflow-x: auto;
-    margin-bottom: 1.5rem;
-  }
+    .dark .prose blockquote {
+      border-left-color: #4b5563;
+      color: #9ca3af;
+    }
 
-  .dark .prose pre {
-    background-color: #374151;
-    color: #f9fafb;
-  }
+    .prose a {
+      color: #2563eb;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
 
-  .prose blockquote {
-    border-left: 4px solid #e5e7eb;
-    padding-left: 1rem;
-    margin: 1.5rem 0;
-    font-style: italic;
-    color: #6b7280;
-  }
+    .dark .prose a {
+      color: #60a5fa;
+    }
 
-  .dark .prose blockquote {
-    border-left-color: #4b5563;
-    color: #9ca3af;
-  }
+    .prose a:hover {
+      color: #1d4ed8;
+    }
 
-  .prose a {
-    color: #2563eb;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 2px;
-  }
-
-  .dark .prose a {
-    color: #60a5fa;
-  }
-
-  .prose a:hover {
-    color: #1d4ed8;
-  }
-
-  .dark .prose a:hover {
-    color: #93c5fd;
+    .dark .prose a:hover {
+      color: #93c5fd;
+    }
   }
 </style>

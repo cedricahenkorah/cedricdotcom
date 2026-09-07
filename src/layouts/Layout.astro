@@ -1,4 +1,6 @@
 ---
+import "../styles/tailwind.css";
+
 interface Props {
   title: string;
 }
@@ -51,40 +53,43 @@ import Analytics from "@vercel/analytics/astro";
   </body>
 </html>
 <style is:global>
-  html {
-    font-family:
-      "IBM Plex Sans Condensed",
-      "IBM Plex Sans Condensed Fallback",
-      -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      "Roboto",
-      "Oxygen",
-      "Ubuntu",
-      "Cantarell",
-      "Fira Sans",
-      "Droid Sans",
-      "Helvetica Neue",
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+  @layer base {
+    html {
+      font-family:
+        "IBM Plex Sans Condensed",
+        "IBM Plex Sans Condensed Fallback",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Roboto",
+        "Oxygen",
+        "Ubuntu",
+        "Cantarell",
+        "Fira Sans",
+        "Droid Sans",
+        "Helvetica Neue",
+        sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: "Lora", "Lora Fallback", Georgia, serif;
-  }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Lora", "Lora Fallback", Georgia, serif;
+    }
 
-  body {
-    line-height: 1.6;
-  }
+    body {
+      line-height: 1.6;
+    }
 
-  code {
-    font-family: "SF Mono", Monaco, Inconsolata, "Roboto Mono",
-      "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+    code {
+      font-family:
+        "SF Mono", Monaco, Inconsolata, "Roboto Mono", "Source Code Pro", Menlo,
+        Consolas, "DejaVu Sans Mono", monospace;
+    }
   }
 </style>
