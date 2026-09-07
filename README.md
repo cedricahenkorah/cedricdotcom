@@ -36,6 +36,18 @@ There's nothing special about `src/components/`, but that's where we like to put
 
 Any static assets, like images, can be placed in the `public/` directory.
 
+## Requirements
+
+Use Node.js 22 (at least 22.12.0) for Astro 7. Run `nvm use` to select the
+version in `.nvmrc`. The `package.json` engine range keeps Vercel on Node 22.
+
+Tailwind CSS 4 runs through `@tailwindcss/vite` in `astro.config.mjs`. Both page
+layouts import `src/styles/tailwind.css`, which configures source detection and
+class-based dark mode. Custom layout styles use cascade layers so utilities can
+override them.
+
+Tailwind 4 requires modern browsers: Safari 16.4+, Chrome 111+, or Firefox 128+.
+
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
