@@ -9,6 +9,10 @@ updates:
       time: "06:00"
       timezone: Africa/Accra
     open-pull-requests-limit: 10
+    ignore:
+      # Astro check requires the TypeScript 5/6 compiler API.
+      - dependency-name: typescript
+        versions: [">=7.0.0"]
     groups:
       minor-and-patch:
         update-types:
