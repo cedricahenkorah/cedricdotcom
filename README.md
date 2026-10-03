@@ -38,8 +38,8 @@ Any static assets, like images, can be placed in the `public/` directory.
 
 ## Requirements
 
-Use Node.js 22 (at least 22.12.0) for Astro 7. Run `nvm use` to select the
-version in `.nvmrc`. The `package.json` engine range keeps Vercel on Node 22.
+Use Node.js 24. Run `nvm use` to select the version in `.nvmrc`.
+The `package.json` engine range selects Node 24 for deployment.
 
 Tailwind CSS 4 runs through `@tailwindcss/vite` in `astro.config.mjs`. Both page
 layouts import `src/styles/tailwind.css`, which configures source detection and
