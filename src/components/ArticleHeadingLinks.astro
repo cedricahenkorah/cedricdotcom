@@ -1,0 +1,40 @@
+<span id="heading-link-status" class="sr-only" role="status"></span>
+<script>
+  const status = document.getElementById("heading-link-status");
+  document
+    .querySelectorAll<HTMLHeadingElement>(".prose :is(h2, h3, h4, h5, h6)[id]")
+    .forEach((heading) => {
+      if (heading.querySelector(".heading-anchor")) return;
+      const anchor = document.createElement("a");
+      const label = `link to ${(heading.textContent ?? "section").trim().toLowerCase()}`;
+      anchor.className = "heading-anchor";
+      anchor.href = `#${encodeURIComponent(heading.id)}`;
+      anchor.setAttribute("aria-label", label);
+      anchor.title = "copy section link";
+      const symbol = document.createElement("span");
+      symbol.textContent = "#";
+      symbol.setAttribute("aria-hidden", "true");
+      anchor.append(symbol);
+      heading.append(anchor);
+      anchor.addEventListener("click", async () => {
+        // Keep native fragment navigation, even if clipboard access is unavailable.
+        try {
+          await navigator.clipboard.writeText(new URL(anchor.href).href);
+          symbol.textContent = "✓";
+          anchor.classList.add("is-copied");
+          anchor.title = "section link copied";
+          if (status) status.textContent = "section link copied to clipboard.";
+        } catch {
+          if (status)
+            status.textContent =
+              "section selected. copy its link from the address bar.";
+        }
+        window.setTimeout(() => {
+          symbol.textContent = "#";
+          anchor.classList.remove("is-copied");
+          anchor.title = "copy section link";
+          if (status) status.textContent = "";
+        }, 2000);
+      });
+    });
+</script>

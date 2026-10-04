@@ -1,0 +1,34 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { readingTime } from "../utils/reading-time";
+interface Props {
+  posts: CollectionEntry<"posts">[];
+  headingLevel?: "h2" | "h3";
+}
+const { posts } = Astro.props;
+const Heading = Astro.props.headingLevel ?? "h3";
+const dateFormat = new Intl.DateTimeFormat("en", {
+  month: "short",
+  year: "numeric",
+  timeZone: "UTC",
+});
+---
+
+<div class="notes-list">
+  {
+    posts.map((post) => (
+      <article>
+        <a class="notes-row" href={`/posts/${post.id}`}>
+          <Heading>{post.data.title}</Heading>
+          <span class="notes-meta">
+            <time datetime={post.data.pubDate.toISOString()}>
+              {dateFormat.format(post.data.pubDate)}
+            </time>
+            <span aria-hidden="true">·</span>
+            <span>{readingTime(post.body)} min read</span>
+          </span>
+        </a>
+      </article>
+    ))
+  }
+</div>
