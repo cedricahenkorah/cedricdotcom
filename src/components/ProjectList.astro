@@ -1,0 +1,39 @@
+---
+import { projects } from "../constants/index";
+interface Props {
+  headingLevel?: "h2" | "h3";
+}
+const Heading = Astro.props.headingLevel ?? "h3";
+---
+
+<div class="project-list">
+  {
+    projects.map((project) => (
+      <article class="project">
+        <div class="project-summary">
+          <Heading>
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${project.title}: ${project.linkLabel} (opens in a new tab)`}
+            >
+              {project.title}
+            </a>
+          </Heading>
+          <p>{project.description}</p>
+        </div>
+        <div class="project-links">
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${project.title} source on GitHub (opens in a new tab)`}
+          >
+            Source on GitHub
+          </a>
+        </div>
+      </article>
+    ))
+  }
+</div>

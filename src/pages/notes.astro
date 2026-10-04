@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/Layout.astro";
+import NotesList from "../components/NotesList.astro";
+import { getCollection } from "astro:content";
+const posts = (await getCollection("posts")).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
+);
+---
+
+<Layout title="Notes — cedric ahenkorah">
+  <main id="main" class="shell">
+    <header class="page-intro">
+      <h1>Notes</h1>
+      <p>Notes on building software and what I learn along the way.</p>
+    </header>
+    <NotesList posts={posts} headingLevel="h2" />
+  </main>
+</Layout>
