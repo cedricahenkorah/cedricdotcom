@@ -1,0 +1,43 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SocialLinks from "../components/SocialLinks.astro";
+---
+
+<Layout
+  title="links — cedric ahenkorah"
+  description="where to find me and my work."
+  showFooter={false}
+>
+  <main id="main" class="shell">
+    <header class="page-intro">
+      <h1>links</h1>
+      <p>where to find me and my work.</p>
+    </header>
+    <nav class="profile-links" aria-label="Connect with Cedric">
+      <a
+        class="text-link"
+        href="https://docs.google.com/document/d/16sO2OGTOtqvGN31PrdH4MBD91i4cZCQ7wuAypdrbG7Q/edit?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="resume (opens in a new tab)">resume</a
+      >
+      <SocialLinks />
+    </nav>
+  </main>
+</Layout>
+
+<style>
+  .profile-links {
+    display: grid;
+  }
+  .profile-links :global(a) {
+    border-top: 1px solid var(--line);
+    padding-block: 14px;
+    min-height: 44px;
+    font-size: 16px;
+    color: var(--ink);
+  }
+  .profile-links :global(a:last-child) {
+    border-bottom: 1px solid var(--line);
+  }
+</style>

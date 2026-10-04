@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import SocialLinks from "../components/SocialLinks.astro";
 import { Image } from "astro:assets";
 import portrait from "../assets/cedric-portrait.jpg";
 ---
@@ -19,16 +18,6 @@ import portrait from "../assets/cedric-portrait.jpg";
           dreamer, creator and minimalist. spending much of my time talking to
           computers and building meaningful software that people love :).
         </p>
-        <nav class="intro-links" aria-label="Connect with Cedric">
-          <a
-            class="text-link"
-            href="https://docs.google.com/document/d/16sO2OGTOtqvGN31PrdH4MBD91i4cZCQ7wuAypdrbG7Q/edit?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Resume (opens in a new tab)">Resume</a
-          >
-          <SocialLinks />
-        </nav>
       </div>
       <Image
         src={portrait}
@@ -45,6 +34,7 @@ import portrait from "../assets/cedric-portrait.jpg";
       <a href="/notes">Notes</a>
       <a href="/projects">Projects</a>
       <a href="/now">now</a>
+      <a href="/links">links</a>
     </nav>
   </main>
 </Layout>
