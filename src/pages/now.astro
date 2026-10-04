@@ -1,0 +1,53 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="now — cedric ahenkorah"
+  description="what i'm working on and exploring right now."
+>
+  <main id="main" class="shell">
+    <header class="page-intro">
+      <h1>now</h1>
+      <p>what i'm working on and exploring right now.</p>
+    </header>
+    <div class="now-focus">
+      <p>engineering at <a href="https://hubtel.com" target="_blank" rel="noopener noreferrer" aria-label="hubtel (opens in a new tab)">hubtel</a>.</p>
+      <p>exploring golang and cloud infrastructure.</p>
+      <p>
+        building <a href="https://maton.co" target="_blank" rel="noopener noreferrer" aria-label="maton.co (opens in a new tab)">maton.co</a> and{" "}
+        <a href="https://github.com/cedricahenkorah/trail" target="_blank" rel="noopener noreferrer" aria-label="trail (opens in a new tab)">trail</a>.
+      </p>
+    </div>
+    <p class="now-updated">
+      last updated: <time datetime="2026-10-04">october 4, 2026</time>
+    </p>
+  </main>
+</Layout>
+
+<style>
+  .now-focus {
+    display: grid;
+    gap: 16px;
+    font-size: 17px;
+    line-height: 1.75;
+  }
+  .now-focus a {
+    text-decoration: underline;
+    text-decoration-color: var(--line);
+  }
+  .now-focus a:hover,
+  .now-focus a:focus-visible {
+    text-decoration-color: currentColor;
+  }
+  .now-updated {
+    margin-top: 36px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  @media (max-width: 520px) {
+    .now-focus {
+      font-size: 16px;
+    }
+  }
+</style>

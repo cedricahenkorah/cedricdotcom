@@ -1,0 +1,49 @@
+<script>
+  document
+    .querySelectorAll<HTMLPreElement>(".prose pre")
+    .forEach((pre, index) => {
+      const code = pre.querySelector("code");
+      if (!code || pre.parentElement?.classList.contains("code-block")) return;
+      const wrapper = document.createElement("div");
+      wrapper.className = "code-block";
+      const toolbar = document.createElement("div");
+      toolbar.className = "code-toolbar";
+      const button = document.createElement("button");
+      button.type = "button";
+      button.textContent = "copy";
+      button.setAttribute("aria-label", `copy code snippet ${index + 1}`);
+      const status = document.createElement("span");
+      status.className = "sr-only";
+      status.setAttribute("role", "status");
+      toolbar.append(status, button);
+      pre.before(wrapper);
+      wrapper.append(toolbar, pre);
+      pre.tabIndex = 0;
+      pre.setAttribute("role", "region");
+      pre.setAttribute("aria-label", `code snippet ${index + 1}`);
+      let copying = false;
+      button.addEventListener("click", async () => {
+        if (copying) return;
+        copying = true;
+        try {
+          await navigator.clipboard.writeText(code.textContent ?? "");
+          button.textContent = "copied";
+          status.textContent = "code copied to clipboard.";
+        } catch {
+          const selection = window.getSelection();
+          const range = document.createRange();
+          range.selectNodeContents(code);
+          selection?.removeAllRanges();
+          selection?.addRange(range);
+          button.textContent = "code selected";
+          status.textContent =
+            "automatic copying was unavailable. the code is selected; use your keyboard copy shortcut.";
+        }
+        window.setTimeout(() => {
+          button.textContent = "copy";
+          copying = false;
+          status.textContent = "";
+        }, 2000);
+      });
+    });
+</script>
