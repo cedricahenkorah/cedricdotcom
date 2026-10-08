@@ -2,6 +2,7 @@
 import Layout from "./Layout.astro";
 import CodeCopy from "../components/CodeCopy.astro";
 import ArticleHeadingLinks from "../components/ArticleHeadingLinks.astro";
+import BirthdayConfetti from "../components/BirthdayConfetti.astro";
 const { frontmatter, previous, next, minutes } = Astro.props;
 const dateFormat = new Intl.DateTimeFormat("en", {
   day: "numeric",
@@ -16,6 +17,7 @@ const dateFormat = new Intl.DateTimeFormat("en", {
   description={frontmatter.description ?? undefined}
   article
 >
+  {frontmatter.birthdayConfetti && <BirthdayConfetti />}
   <main id="main" class="shell article-page">
     <a class="text-link back-link" href="/notes">Back to notes</a>
     <article>

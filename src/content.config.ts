@@ -8,6 +8,7 @@ const postsCollection = defineCollection({
     title: z.string(),
     pubDate: z.coerce.date(),
     description: z.string().nullish(),
+    birthdayConfetti: z.boolean().default(false),
   }),
 });
 
